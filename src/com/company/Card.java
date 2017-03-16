@@ -34,9 +34,10 @@ public class Card {
 	 *                  containing the point value of the card
 	 */
 	public Card(String cardRank, String cardSuit, int cardPointValue) {
+		//initializes a new Card with the given rank, suit, and point value
 		rank = cardRank;
-        suit = cardSuit;
-        pointValue = cardPointValue;
+		suit = cardSuit;
+		pointValue = cardPointValue;
 	}
 
 
@@ -45,17 +46,15 @@ public class Card {
 	 * @return this <code>Card's</code> suit.
 	 */
 	public String suit() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 1 *** */
-        return suit;
-   }
+		return suit;
+	}
 
 	/**
 	 * Accesses this <code>Card's</code> rank.
 	 * @return this <code>Card's</code> rank.
 	 */
 	public String rank() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 1 *** */
-        return rank;
+		return rank;
 	}
 
    /**
@@ -63,7 +62,7 @@ public class Card {
 	 * @return this <code>Card's</code> point value.
 	 */
 	public int pointValue() {
-        return pointValue;
+		return pointValue;
 	}
 
 	/** Compare this card with the argument.
@@ -73,13 +72,9 @@ public class Card {
 	 *         false otherwise.
 	 */
 	public boolean matches(Card otherCard) {
-		if(!this.suit.equals(otherCard.suit))
-            return false;
-        if(!this.rank.equals(otherCard.rank))
-            return false;
-        if(!(this.pointValue == otherCard.pointValue))
-            return false;
-        return true;
+		return otherCard.suit().equals(this.suit())
+			&& otherCard.rank().equals(this.rank())
+			&& otherCard.pointValue() == this.pointValue();
 	}
 
 	/**
