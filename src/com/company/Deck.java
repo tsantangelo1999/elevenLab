@@ -13,7 +13,7 @@ public class Deck {
 	/**
 	 * cards contains all the cards in the deck.
 	 */
-	private List<Card> cards;
+	private ArrayList<Card> cards = new ArrayList<>();
 
 	/**
 	 * size is the number of not-yet-dealt cards.
@@ -31,25 +31,36 @@ public class Deck {
 	 * @param suits is an array containing all of the card suits.
 	 * @param values is an array containing all of the card point values.
 	 */
-	public Deck(String[] ranks, String[] suits, int[] values) {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
-	}
+	public Deck(String[] ranks, String[] suits, int[] values)
+	{
+        for(int i = 0; i < suits.length; i++)
+        {
+            for(int j = 0; j < ranks.length; j++)
+            {
+                cards.add(new Card(ranks[j], suits[i], values[j]));
+            }
+        }
+        size = cards.size();
+        shuffle();
+    }
 
 
 	/**
 	 * Determines if this deck is empty (no undealt cards).
 	 * @return true if this deck is empty, false otherwise.
 	 */
-	public boolean isEmpty() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+	public boolean isEmpty()
+    {
+		return size() == 0;
 	}
 
 	/**
 	 * Accesses the number of undealt cards in this deck.
 	 * @return the number of undealt cards in this deck.
 	 */
-	public int size() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+	public int size()
+    {
+		return size;
 	}
 
 	/**
@@ -65,8 +76,11 @@ public class Deck {
 	 * @return the card just dealt, or null if all the cards have been
 	 *         previously dealt.
 	 */
-	public Card deal() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+	public Card deal()
+    {
+	    if(isEmpty())
+            return null;
+        return cards.get(--size);
 	}
 
 	/**
