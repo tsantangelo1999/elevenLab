@@ -9,25 +9,57 @@ public class DeckTester {
 	 * The main method in this class checks the Deck operations for consistency.
 	 *	@param args is not used.
 	 */
-	public static void main(String[] args)
-	{
-		String[] dank = {"a", "b", "c"};
-        String[] memes = {"f", "g"};
-        int[] fourTwenty = {1, 2, 3};
-        Deck d1 = new Deck(dank, memes, fourTwenty);
-        Deck d2 = new Deck(new String[] {"one", "two", "three"}, new String[] {"yes", "no", "maybe"}, new int[] {5, 1, 8});
-        Deck d3 = new Deck(new String[] {"jack", "queen", "king", "ace"}, new String[] {"clubs", "diamonds", "hearts", "spades"}, new int[] {1, 2, 3, 4});
-        System.out.println(d1.size());
-        System.out.println(d1.deal().toString());
-        System.out.println(d1.size());
-        while(d2.size() > 0)
-        {
-            d2.deal();
-        }
-        System.out.println(d2.isEmpty());
-        System.out.println(d3.size());
-        System.out.println(d3.deal().toString());
-        System.out.println(d3.isEmpty());
-        System.out.println(d3.toString());
+	public static void main(String[] args) {
+		String[] ranks = {"2,", "3", "4", "5", "6", "7", "8", "9", "10", "jack", "queen", "king", "ace"};
+		String[] suits = {"spades", "hearts", "clubs", "diamonds"};
+		int[] pointValues = {2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11};
+		Deck d = new Deck(ranks, suits, pointValues);
+
+		System.out.println("**** Original Deck Methods ****");
+		System.out.println("  toString:\n" + d.toString());
+		System.out.println("  isEmpty: " + d.isEmpty());
+		System.out.println("  size: " + d.size());
+		System.out.println();
+		System.out.println();
+        /*
+		System.out.println("**** Deal a Card ****");
+		System.out.println("  deal: " + d.deal());
+		System.out.println();
+		System.out.println();
+
+		System.out.println("**** Deck Methods After 1 Card Dealt ****");
+		System.out.println("  toString:\n" + d.toString());
+		System.out.println("  isEmpty: " + d.isEmpty());
+		System.out.println("  size: " + d.size());
+		System.out.println();
+		System.out.println();
+
+		System.out.println("**** Deal Remaining 5 Cards ****");
+		for (int i = 0; i < 5; i++) {
+			System.out.println("  deal: " + d.deal());
+		}
+		System.out.println();
+		System.out.println();
+        */
+		System.out.println("**** Deck Methods After All Cards Dealt ****");
+		System.out.println("  toString:\n" + d.toString());
+		System.out.println("  isEmpty: " + d.isEmpty());
+		System.out.println("  size: " + d.size());
+		System.out.println();
+		System.out.println();
+
+		System.out.println("**** Deal a Card From Empty Deck ****");
+		System.out.println("  deal: " + d.deal());
+		System.out.println();
+		System.out.println();
+
+		d.shuffle();
+        System.out.println(d.toString());
+
+        d.shuffle();
+        System.out.println(d.toString());
+
+        d.shuffle();
+        System.out.println(d.toString());
     }
 }
